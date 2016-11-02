@@ -13,7 +13,7 @@
     <div class="col-md-12 myTop">
         <aside class="aa-properties-sidebar">
             <div class="content-panel">
-                <h4><i class="fa fa-angle-right"></i> Users Table</h4>
+                <h4><i class="fa fa-angle-right"></i> Properties Table</h4>
                 <hr>
                 <div class="table-responsive">
                 <table class="table table-striped table-bordered table-hover">
@@ -33,7 +33,7 @@
                         <th>Bathroom</th>
                         <th></th>
                         <th></th>
-                        
+
                     </tr>
                     </thead>
                     @foreach( \App\Property::all() as $uProperty )

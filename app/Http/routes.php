@@ -98,7 +98,7 @@ Route::get('/details/{id}', [
 Route::post('/review}', [
     'uses' => 'PropertyController@userReview',
     'as' => 'review',
-    // 'middleware' => 'auth'
+    'middleware' => 'auth'
 ]);
 Route::get('properties/autocomplete', [
     'uses' => 'PropertyController@autocomplete',
@@ -109,30 +109,36 @@ Route::resource('properties', 'PropertyController');
 
 Route::get('/userPropertyReviews', [
     'uses' => 'DashboardController@myReviews',
-    'as' => 'userPropertyReviews'
+    'as' => 'userPropertyReviews',
+    'middleware' => 'auth'
 ]);
 
 Route::get('/userDetails', [
     'uses' => 'DashboardController@userDetails',
-    'as' => 'userDetails'
+    'as' => 'userDetails',
+    'middleware' => 'auth'
 ]);
 Route::get('/manageProperty', [
     'uses' => 'DashboardController@manageProperty',
-    'as' => 'manageProperty'
+    'as' => 'manageProperty',
+    'middleware' => 'auth'
 ]);
 
 Route::get('edit/{id}', [
     'uses' => 'PropertyController@edit',
-    'as' => 'edit'
+    'as' => 'edit',
+    'middleware' => 'auth'
 ]);
 
 Route::post('updates/{id}', [
     'uses' => 'PropertyController@updates',
-    'as' => 'updates'
+    'as' => 'updates',
+    'middleware' => 'auth'
 ]);
 
 Route::delete('delete/{id}', [
     'uses' => 'PropertyController@delete',
-    'as' => 'delete'
+    'as' => 'delete',
+    'middleware' => 'auth'
 ]);
 
