@@ -285,6 +285,15 @@ class PropertyController extends Controller
 
     }
 
+    public function delete($id){
+        $property = Property::find($id);
+        $property->delete();
+
+        Session::flash('success', 'The property was successfully Deleted');
+        return redirect()->back();
+
+    }
+
 
 
 

@@ -131,3 +131,8 @@ Route::post('updates/{id}', [
     'as' => 'updates'
 ]);
 
+Route::delete('delete/{id}', [
+    'uses' => 'PropertyController@delete',
+    'as' => 'delete'
+]);
+

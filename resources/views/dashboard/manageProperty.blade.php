@@ -15,34 +15,71 @@
             <div class="content-panel">
                 <h4><i class="fa fa-angle-right"></i> Users Table</h4>
                 <hr>
+                <div class="table-responsive">
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
-                        <th>Adress</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Type</th>
+                        <th>Address</th>
                         <th>City</th>
                         <th>Country</th>
+                        <th>Posted on</th>
+                        <th>Updated on</th>
                         <th>Bedroom</th>
-                        <th>Washroom</th>
-                        <th>Kitchn</th>
-                        <th>Details</th>
+                        <th>Bathroom</th>
+                        <th></th>
+                        <th></th>
+                        
                     </tr>
                     </thead>
-                    @foreach( \App\Property::all() as $property )
+                    @foreach( \App\Property::all() as $uProperty )
                         <tbody>
                         <tr>
                             <td>
-                                {{$property->id}} </td>
+                                {{$uProperty->id}} </td>
                             <td>
-                                {{ $property->title }} </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><a href="{{ route('details', $property->id) }}"><button class="btn btn-default" value="Details">Details</button></a></td>
+                                {{ $uProperty->title }} </td>
+                            <td>
+                                {{$uProperty->group->name}} </td>
+                            <td>
+                                {{ $uProperty->price }}
+                            </td>
+                            <td>
+                                {{ $uProperty->type }}
+                            </td>
+
+                            <td>
+                                {{ $uProperty->address }}
+                            </td>
+                            <td>
+                                {{ $uProperty->city }}
+                            </td>
+                            <td>
+                                {{ $uProperty->country }}
+                            </td>
+                            <td>
+                                {{ $uProperty->created_at }}
+                            </td>
+                            <td>
+                                {{ $uProperty->updated_at }}
+                            </td>
+
+                            <td>
+                                {{ $uProperty->bedroom }}
+                            </td>
+                            <td>
+                                {{ $uProperty->bathroom }}
+                            </td>
+                            <td><a href="{{ route('details', $uProperty->id) }}"><button class="btn btn-default" value="Details">Details</button></a></td>
+                            <td>
+                                {!! Form::open(['route' => ['delete', $uProperty->id], 'method' => 'DELETE' ]) !!}
+                                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                {!! Form::close() !!}
+                            </td>
 
                         </tr>
 
@@ -50,6 +87,7 @@
                         </tbody>
                     @endforeach
                 </table>
+                    </div>
                 </h4>
             </div>
 

@@ -24,6 +24,7 @@
                             <th>Bathroom</th>
                             <th></th>
                             <th></th>
+                            <th></th>
                         </tr>
                         </thead>
                         @foreach( Auth::user()->properties as $uProperty )
@@ -70,6 +71,11 @@
                                 <td><a href="{{ route('edit', $uProperty->id) }}">
                                         <button class="btn btn-primary" value="Edits">Edit</button>
                                     </a></td>
+                                <td>
+                                    {!! Form::open(['route' => ['delete', $uProperty->id], 'method' => 'DELETE' ]) !!}
+                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                    {!! Form::close() !!}
+                                </td>
                             </tr>
                             </tbody>
                         @endforeach
