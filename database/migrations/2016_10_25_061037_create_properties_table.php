@@ -19,11 +19,11 @@ class CreatePropertiesTable extends Migration
             $table->float('price');
             $table->string('type');
             $table->string('status');
-            $table->string('address');
+
             $table->string('readyToMove');
             $table->string('city');
             $table->string('country');
-
+            $table->integer('hit');
             $table->string('mapLocation');
             $table->integer('group_id')->unsigned()->default(0);
             $table->integer('user_id')->unsigned();

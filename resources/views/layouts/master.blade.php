@@ -12,6 +12,16 @@
 
         <!-- Font awesome -->
 
+        <style>
+            #map-canvas{
+                width: 400px;
+                height: 400px;
+            }
+        </style>
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyB6K1CFUQ1RwVJ-nyXxd6W0rfiIBe12Q"
+                type="text/javascript"></script>
 
         <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
 
@@ -24,6 +34,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/nouislider.css') }}">
         <!-- Theme color -->
         <link id="switcher" href="{{ asset('css/theme-color/default-theme.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('http://www.w3schools.com/lib/w3.css') }}">
 
         <!-- Main style sheet -->
 

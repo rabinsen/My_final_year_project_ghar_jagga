@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master4')
 
 @section('content')
 
@@ -27,11 +27,17 @@
                     <div class="aa-properties-content">
                         <!-- Start properties content body -->
                         <div class="aa-properties-details">
-                            <div class="aa-properties-details-img">
-                                <img src="{{ url('/images/'.$details->images->thumbnail) }}" alt="img">
-                                <img src="{{ url('/images/'.$details->images->slide1) }}" alt="img">
-                                {{--<img src="img/slider/3.jpg" alt="img">--}}
+                            <div class="w3-content w3-display-container">
+                                <img class="mySlides" src="{{ url('/images/'.$details->images->thumbnail) }}" style="width:100%">
+                                <img class="mySlides" src="{{ url('/images/'.$details->images->slide1) }}" style="width:100%">
+                                <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1)">&#10094;</a>
+                                <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1)">&#10095;</a>
                             </div>
+                            {{--<div class="aa-properties-details-img">--}}
+                                {{--<img src="{{ url('/images/'.$details->images->thumbnail) }}" alt="img">--}}
+                                {{--<img src="{{ url('/images/'.$details->images->slide1) }}" alt="img">--}}
+                                {{--<img src="img/slider/3.jpg" alt="img">--}}
+                            {{--</div>--}}
                             <div class="aa-properties-info">
                                 <h2>{{ $details->title }}</h2>
 
@@ -55,6 +61,8 @@
                             </div>
                         </div>
                     </div>
+
+
 
                     <div class="row new-post">
                         <div class="col-md-12 col-md-offset-0">
@@ -136,6 +144,14 @@
                             </section>
                         @endif
                     </div>
+
+                    <div class="container">
+                        <h1>{{$maps->address}}</h1>
+
+                        <div id="map-canvas"></div>
+                    </div>
+
+
 
                 </div>
 
@@ -254,5 +270,27 @@
         </div>
     </section>
     <!-- / Properties  -->
+    <script>
+
+        var lat = {{$maps->lat}};
+        var lng = {{$maps->lng}};
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'),{
+            center:{
+                lat: lat,
+                lng: lng
+            },
+            zoom: 15
+        });
+
+        var marker = new google.maps.Marker({
+            position:{
+                lat:lat,
+                lng: lng
+            },
+            map:map
+        });
+
+    </script>
 
 @endsection

@@ -4,19 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ImageProperty extends Model
+class Map extends Model
 {
     protected $fillable = [
-        'thumbnail',
-        'slide1',
-        'slide2',
-//        'slide3'
+        'address','lat','lng'
     ];
 
-    public function property()
-    {
+    public function property(){
         return $this->belongsTo('App\Property');
     }
-
-
 }

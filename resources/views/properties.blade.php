@@ -40,6 +40,8 @@
                         <!-- Start Single properties sidebar -->
                         <div class="aa-properties-single-sidebar">
                             <div class="aa-properties-content">
+                                <div class="aa-properties-content-head">
+
                                 <!-- start properties content head -->
                                 <div class="aa-properties-content-head">
                                     <div class="aa-properties-content-head-left">
@@ -81,7 +83,7 @@
                                                             <span>{{ $property->bedroom }} beds</span>
                                                             <span>{{ $property->bathroom }} baths</span>
                                                             <span>{{ $property->kitchen }} kitchen</span>
-                                                            <span>{{ $property->landArea }} sq. foot</span>
+                                                            <span>{{ $property->landArea }} sq.ft</span>
                                                         </div>
                                                         <div class="aa-properties-about">
                                                             <h3><a href="#">{{ $property->title }}</a></h3>

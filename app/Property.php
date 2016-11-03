@@ -45,4 +45,8 @@ class Property extends Model
     public function reviews(){
         return $this->hasMany('App\Review');
     }
+
+    public function map(){
+        return $this->hasOne('App\Map');
+    }
 }

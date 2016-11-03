@@ -310,6 +310,22 @@
             </div>
 
             <div class="form-group">
+                <label for="">Map</label>
+                <input type="text" id="searchmap">
+                <div id="map-canvas"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="">Lat</label>
+                <input type="text" class="form-control input-sm" name="lat" id="lat">
+            </div>
+
+            <div class="form-group">
+                <label for="">Lng</label>
+                <input type="text" class="form-control input-sm" name="lng" id="lng">
+            </div>
+
+            <div class="form-group">
                 <label>Map Location:</label>
                 <input type="text" name="mapLocation" class="form-control">
             </div>

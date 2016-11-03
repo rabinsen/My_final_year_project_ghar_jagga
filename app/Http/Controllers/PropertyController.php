@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Group;
+use App\Map;
 use Illuminate\Http\Request;
 use App\Property;
 
@@ -61,6 +62,7 @@ class PropertyController extends Controller
     {
         $property = new Property();
         $picture = new ImageProperty();
+        $map = new Map();
         $user = Auth::user();
 //        $category = Group::findOrFail($request['c_id']);
 
@@ -92,12 +94,17 @@ class PropertyController extends Controller
 //            'image' => 'required'
 //        ]);
 //        $category->name= $request->category;
+
+        $map->address = $request->address;
+        $map->lat = $request->lat;
+        $map->lng = $request->lng;
+
         $property->title = $request->title;
         $property->price = $request->price;
         $property->type = $request->type;
         $property->status = $request->status;
         $property->readyToMove = $request->readyToMove;
-        $property->address = $request->address;
+//        $property->address = $request->address;
         $property->city = $request->city;
         $property->country = $request->country;
         $property->mapLocation = $request->mapLocation;
@@ -140,6 +147,7 @@ class PropertyController extends Controller
 //        Auth::user()->properties()->save($property);
        $property->save();
         $property->images()->save($picture);
+        $property->map()->save($map);
 
         return redirect()->route('properties.index');
 
@@ -170,7 +178,10 @@ class PropertyController extends Controller
 
     public function detail($id){
         $details = Property::findOrFail($id);
-        return view('propertyDetails', compact('details'));
+        $maps = Map::findOrFail($id);
+        $details->hit++;
+        $details->save();
+        return view('propertyDetails', compact('details', 'maps'));
     }
 
     public function showLatest(){
