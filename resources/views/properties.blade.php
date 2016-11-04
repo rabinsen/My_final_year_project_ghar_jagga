@@ -31,6 +31,27 @@
                             <a href="{{ route('properties.index', ['group_id' => $group->id]) }}" class= "list-group-item
                              {{ $selected_group == $group->id ? 'active' : '' }}">{{ $group->name }} <span class="badge">{{ $group->cProperties->count() }}</span> </a>
                         @endforeach
+
+                        <div>
+                            <form action="{{'filter'}}">
+
+                                <div>
+                                    <label for="">Price</label><br>
+                                    min: <input type="text" name="min_price" value=""><br>
+                                    max: <input type="text" name="max_price" value=""><br>
+                                </div>
+                                <button>Go</button>
+                                <hr>
+
+                                {{--<h1>Products</h1>--}}
+                                {{--<ul>--}}
+                                    {{--@foreach( $products as $product )--}}
+                                        {{--<li>{{ $product->title }} - {{ $product->price }} - brand id = {{ $product->brand_id }}</li>--}}
+                                    {{--@endforeach--}}
+                                {{--</ul>--}}
+
+                            </form>
+                        </div>
                     </aside>
                 </div>
 

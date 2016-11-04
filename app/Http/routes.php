@@ -142,3 +142,16 @@ Route::delete('delete/{id}', [
     'middleware' => 'auth'
 ]);
 
+//Route::delete('/details', [
+//    'uses' => 'PropertyController@sorting',
+//    'as' => 'sorting',
+////    'middleware' => 'auth'
+//]);
+
+Route::get('filter', [
+    'uses' => 'PropertyController@filter',
+    'as' => 'filter',
+//    'middleware' => 'auth'
+]);
+
+

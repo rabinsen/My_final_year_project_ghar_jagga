@@ -163,12 +163,12 @@ class PropertyController extends Controller
 
             if (($term = $request->get('term'))){
                 $query->orWhere('title', 'like', '%' . $term . '%');
-                $query->orWhere('address', 'like', '%' . $term . '%');
+//                $query->orWhere('address', 'like', '%' . $term . '%');
                 $query->orWhere('city', 'like', '%' . $term . '%');
             }
         })
             ->orderBy("id", "desc")
-            ->paginate(3);
+            ->paginate(6);
 
 //
         return view('properties', [
@@ -179,9 +179,11 @@ class PropertyController extends Controller
     public function detail($id){
         $details = Property::findOrFail($id);
         $maps = Map::findOrFail($id);
+        $tProperties = Property::orderBy('hit', 'desc');
         $details->hit++;
         $details->save();
-        return view('propertyDetails', compact('details', 'maps'));
+
+        return view('propertyDetails', ['details' => $details, 'maps' => $maps, 'tProperties' => $tProperties]);
     }
 
     public function showLatest(){
@@ -305,7 +307,25 @@ class PropertyController extends Controller
 
     }
 
+//    public function sorting(){
+//        $tProperties = Property::orderBy('hit', 'desc');
+//        return view('propertyDetails', [ 'tProperties' => $tProperties]);
+//    }
 
+    public function filter(){
+        $properties = Property::where(function($query){
+            $min_price = Input::has('min_price') ?  Input::get('min_price') : null;
+            $max_price = Input::has('max_price') ? Input::get('max_price') : $max_price = null;
+            // $brands = Input::has('brands') ? Input::get('brands') : [];
 
+            if(isset($min_price) && isset($max_price)){
+                $query-> where('price','>=',$min_price)
+                    -> where('price','<=',$max_price);
+            }
 
+        })->orderBy("id", "desc")
+            ->paginate(6);
+
+        return view ('properties', compact('properties'));
+    }
 }
