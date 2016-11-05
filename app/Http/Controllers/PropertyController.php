@@ -323,7 +323,7 @@ class PropertyController extends Controller
                     -> where('price','<=',$max_price);
             }
 
-        })->orderBy("id", "desc")
+        })->orderBy("id", "asc")
             ->paginate(6);
 
         return view ('properties', compact('properties'));

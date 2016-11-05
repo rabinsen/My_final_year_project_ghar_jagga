@@ -25,6 +25,11 @@ Route::get('/profile', [
     'as' => 'profiles'
 ]);
 
+Route::get('/profileInfo', [
+    'uses' => 'UserController@profile',
+    'as' => 'profileInfo'
+]);
+
 //Route::get('/myReview', [
 //    'uses' => 'UserController@myReview',
 //    'as' => 'recentReview'
@@ -46,7 +51,11 @@ Route::get('/Dashboard', [
     'middleware' => 'auth'
 ]);
 
-Route::post('profile', 'UserController@update_avatar');
+Route::post('profile',[
+    'uses' => 'UserController@updateAvatar',
+    'as' => 'profile',
+    'middleware' => 'auth'
+]);
 
 Route::auth();
 

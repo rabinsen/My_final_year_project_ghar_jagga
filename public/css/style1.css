@@ -20,6 +20,10 @@
 	margin-top: 100px;
 }
 
+.myTops {
+	margin-top: 150px;
+}
+
 .panel-blue { background: #30a5ff; color: #fff; }
 .panel-teal { background: #1ebfae; color: #fff; }
 .panel-orange { background: #ffb53e; color: #fff; }
@@ -155,5 +159,9 @@
 }
 .myLeft {
 	margin-left: 40px;
+}
+
+.myLefts {
+	margin-left: 280px;
 }
 

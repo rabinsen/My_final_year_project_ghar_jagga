@@ -19,6 +19,10 @@
             }
         </style>
 
+        {{--<link rel="stylesheet" href="{{ asset('https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css') }}">--}}
+        {{--<script src="{{ asset('https://code.jquery.com/jquery-1.11.3.min.js') }}"></script>--}}
+        {{--<script src="{{ asset('https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js') }}"></script>--}}
+
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyB6K1CFUQ1RwVJ-nyXxd6W0rfiIBe12Q"
                 type="text/javascript"></script>

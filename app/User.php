@@ -32,6 +32,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Review');
     }
 
+    public function profile(){
+        return $this->hasOne('App\Profile');
+    }
+
 //    protected $casts = [
 //        'is_admin' => 'boolean',
 //    ];

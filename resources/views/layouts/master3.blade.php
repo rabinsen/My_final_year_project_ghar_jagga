@@ -144,7 +144,7 @@
         @if(\Illuminate\Support\Facades\Auth::user()->type === 0)
             <ul class="sidebar-nav">
                 <li>
-                    <p class="centered"><a href="#"><img src=" /uploads/avatars/{{ Auth::user()->avatar }}"
+                    <p class="centered"><a href="{{ route('profile') }}"><img src=" /uploads/avatars/{{ Auth::user()->avatar }}"
                                                          class="img-circle" width="80"></a></p>
                     <h5 class="centered textColor">{{ Auth::user()->name }}</h5>
                     {{--<div class="centered">--}}
@@ -160,7 +160,7 @@
                 </li>
 
                 <li>
-                    <a href="#">Update Profile Info</a>
+                    <a href="{{ route('profileInfo') }}">Update Profile Info</a>
                 </li>
                 <li>
                     <a href="{{ route('create') }}">Add new Property</a>
@@ -177,7 +177,7 @@
         @if(\Illuminate\Support\Facades\Auth::user()->type === 1)
             <ul class="sidebar-nav">
                 <li>
-                    <p class="centered"><a href="#"><img src=" /uploads/avatars/{{ Auth::user()->avatar }}"
+                    <p class="centered"><a href="{{ route('profile') }}"><img src=" /uploads/avatars/{{ Auth::user()->avatar }}"
                                                          class="img-circle" width="80"></a></p>
                     <h5 class="centered textColor">{{ Auth::user()->name }}</h5>
                     {{--<div class="centered">--}}
