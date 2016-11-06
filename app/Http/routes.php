@@ -26,19 +26,16 @@ Route::get('/profile', [
 ]);
 
 Route::get('/profileInfo', [
-    'uses' => 'UserController@profile',
+    'uses' => 'UserController@profileInfo',
     'as' => 'profileInfo'
 ]);
 
-//Route::get('/myReview', [
-//    'uses' => 'UserController@myReview',
-//    'as' => 'recentReview'
-//]);
+Route::post('/uploadProfile', [
+    'uses' => 'UserController@upload',
+    'as' => 'uploadProfile'
+]);
 
-//Route::get('/create', [
-//    'uses' => 'PropertyController@upload',
-//    'as' => 'createAdd'
-//]);
+
 
 Route::get('/myProperties', [
     'uses' => 'DashboardController@myProperties',
@@ -57,6 +54,24 @@ Route::post('profile',[
     'middleware' => 'auth'
 ]);
 
+Route::get('showProfile',[
+    'uses' => 'UserController@showProfile',
+    'as' => 'showProfile',
+    'middleware' => 'auth'
+]);
+
+Route::get('editProfile/{id}',[
+    'uses' => 'UserController@editProfile',
+    'as' => 'editProfile',
+    'middleware' => 'auth'
+]);
+
+Route::post('updateProfile/{id}',[
+    'uses' => 'UserController@updateProfile',
+    'as' => 'updateProfile',
+    'middleware' => 'auth'
+]);
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
@@ -65,37 +80,19 @@ Route::get('protected', ['middleware' => ['auth', 'admin'], function () {
     return "this page requires that you be logged in and an Admin";
 }]);
 
-//Route::get('/propertyList', [
-//    'uses' => 'PropertyController@show',
-//    'as' => 'showProperties',
-//    // 'middleware' => 'auth'
-//]);
-
-//Route::get('/createCategory', [
-//    'uses' => 'PropertyController@uploadCategory',
-//    'as' => 'createCategory',
-//]);
 
 Route::get('/create', [
     'uses' => 'PropertyController@upload',
     'as' => 'create',
+    'middleware' => 'auth'
 ]);
 
-//Route::post('/storeCategory', [
-//    'uses' => 'PropertyController@storeCategory',
-//    'as' => 'storeCategory',
-//]);
 
 Route::post('/store', [
     'uses' => 'PropertyController@store',
-    'as' => 'store'
+    'as' => 'store',
+    'middleware' => 'auth'
 ]);
-//Route::get('showProperties', 'PropertyController@show');
-//Route::get('/propertyList/', [
-//    'uses' => 'PropertyController@index',
-//    'as' => 'showProperties',
-//    // 'middleware' => 'auth'
-//]);
 
 
 Route::get('/details/{id}', [

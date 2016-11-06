@@ -49,15 +49,25 @@
 
                                 <h4>Propery Features</h4>
                                 <ul>
-                                    <li>{{ Form::text('bedroom', null, ['class' => 'form-control input-lg']) }} Bedroom</li>
-                                    <li>{{ Form::text('bathroom', null, ['class' => 'form-control input-lg']) }} Baths</li>
-                                    <li>{{ Form::text('kitchen', null, ['class' => 'form-control input-lg']) }} Kitchen</li>
-                                    <li>{{ Form::text('landArea', null, ['class' => 'form-control input-lg']) }}meter Land Area</li>
-                                    <li>{{ Form::text('houseArea', null, ['class' => 'form-control input-lg']) }}meter House Area</li>
-                                    <li>{{ Form::text('plotted', null, ['class' => 'form-control input-lg']) }} Plotted</li>
-                                    <li>{{ Form::text('storey', null, ['class' => 'form-control input-lg']) }} Storey</li>
-                                    <li>{{ Form::text('roadDistance', null, ['class' => 'form-control input-lg']) }}meter Road Distance</li>
-
+                                    <li>{{ Form::text('bedroom', null, ['class' => 'form-control input-lg']) }}Bedroom
+                                    </li>
+                                    <li>{{ Form::text('bathroom', null, ['class' => 'form-control input-lg']) }}Baths
+                                    </li>
+                                    <li>{{ Form::text('kitchen', null, ['class' => 'form-control input-lg']) }}Kitchen
+                                    </li>
+                                    <li>{{ Form::text('landArea', null, ['class' => 'form-control input-lg']) }}meter
+                                        Land Area
+                                    </li>
+                                    <li>{{ Form::text('houseArea', null, ['class' => 'form-control input-lg']) }}meter
+                                        House Area
+                                    </li>
+                                    <li>{{ Form::text('plotted', null, ['class' => 'form-control input-lg']) }}Plotted
+                                    </li>
+                                    <li>{{ Form::text('storey', null, ['class' => 'form-control input-lg']) }}Storey
+                                    </li>
+                                    <li>{{ Form::text('roadDistance', null, ['class' => 'form-control input-lg']) }}
+                                        meter Road Distance
+                                    </li>
 
 
                                 </ul>

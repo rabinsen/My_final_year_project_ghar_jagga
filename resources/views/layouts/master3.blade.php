@@ -160,8 +160,13 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('profileInfo') }}">Update Profile Info</a>
+                    <a href="{{ route('profileInfo') }}" type="hidden"></a>
                 </li>
+
+                <li>
+                    <a href="{{ route('showProfile') }}"> View Profile</a>
+                </li>
+
                 <li>
                     <a href="{{ route('create') }}">Add new Property</a>
                 </li>

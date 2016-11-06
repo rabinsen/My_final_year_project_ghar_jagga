@@ -16,6 +16,16 @@ DashboardController extends Controller
     public function dashboard()
     {
         $user = Auth::user();
+        if (Auth::user()) {
+            $user->view_count++;
+            $user->save();
+        }
+        if ($user->type === 0){
+            if ($user->view_count === 1) {
+                return view('user.profileInfo', compact('user'));
+            }
+            }
+
         return view('dashboard', compact('user'));
     }
 

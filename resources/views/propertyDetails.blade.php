@@ -28,15 +28,25 @@
                         <!-- Start properties content body -->
                         <div class="aa-properties-details">
                             <div class="w3-content w3-display-container">
-                                <img class="mySlides" src="{{ url('/images/'.$details->images->thumbnail) }}" style="width:100%">
-                                <img class="mySlides" src="{{ url('/images/'.$details->images->slide1) }}" style="width:100%">
+
+
+
+
+                                <img class="mySlides" src="{{ url('/images/'.$details->images->thumbnail) }}"
+                                     style="width:100%">
+                                <img class="mySlides" src="{{ url('/images/'.$details->images->slide1) }}"
+                                     style="width:100%">
                                 <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1)">&#10094;</a>
                                 <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1)">&#10095;</a>
                             </div>
+
+                            <h1>{{ App\Review::where('property_id', $details->id)->avg('rating') }}</h1>
+
+
                             {{--<div class="aa-properties-details-img">--}}
-                                {{--<img src="{{ url('/images/'.$details->images->thumbnail) }}" alt="img">--}}
-                                {{--<img src="{{ url('/images/'.$details->images->slide1) }}" alt="img">--}}
-                                {{--<img src="img/slider/3.jpg" alt="img">--}}
+                            {{--<img src="{{ url('/images/'.$details->images->thumbnail) }}" alt="img">--}}
+                            {{--<img src="{{ url('/images/'.$details->images->slide1) }}" alt="img">--}}
+                            {{--<img src="img/slider/3.jpg" alt="img">--}}
                             {{--</div>--}}
                             <div class="aa-properties-info">
                                 <h2>{{ $details->title }}</h2>
@@ -63,7 +73,6 @@
                     </div>
 
 
-
                     <div class="row new-post">
                         <div class="col-md-12 col-md-offset-0">
                             <header><h3>Reviews</h3></header>
@@ -88,7 +97,9 @@
                                         @if( $review->rating === 5 )
                                             <span class="rating-static rating-50"></span>
                                         @endif
-                                    </div><br>
+                                    </div>
+                                    <br>
+
                                     <div><p>{{ $review->comments }}</p></div>
 
                                     <ul>
@@ -106,6 +117,7 @@
 
                     <div>
                         @if( \Illuminate\Support\Facades\Auth::user() )
+                            @if($details->user_id != Auth::id())
                             <section class="row new-post">
                                 <div class="col-md-12 col-md-offset-0">
                                     <header><h3>Add new</h3></header>
@@ -142,111 +154,72 @@
                                     </form>
                                 </div>
                             </section>
+                                @endif
                         @endif
                     </div>
-
-
-
-
-
                 </div>
 
                 <!-- Start properties sidebar -->
+                {{--<div class="col-md-4">--}}
+                {{--<aside class="aa-properties-sidebar">--}}
+                {{--<div class="container">--}}
+                {{--<h1>{{$maps->address}}</h1>--}}
+
+                {{--<div id="map-canvas"></div>--}}
+                {{--</div>--}}
+
+
+                {{--<div class="aa-properties-single-sidebar">--}}
+
+
+                {{--<img src="/uploads/avatars/{{ $details->user->avatar }}"--}}
+                {{--style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">--}}
+                {{--<h1>Name: {{ $details->user->profile->first_name }} {{ $details->user->profile->last_name }}</h1>--}}
+
+                {{--</div>--}}
+                {{--</aside>--}}
+                {{--</div>--}}
+
                 <div class="col-md-4">
-                    <aside class="aa-properties-sidebar">
-                        {{--<div class="container">--}}
-                            {{--<h1>{{$maps->address}}</h1>--}}
-
-                            {{--<div id="map-canvas"></div>--}}
-                        {{--</div>--}}
-                        <!-- Start Single properties sidebar -->
-                        {{--<div class="aa-properties-single-sidebar">--}}
-                            {{--<h3>Properties Search</h3>--}}
-
-                            {{--<form action="">--}}
-                                {{--<div class="aa-single-advance-search">--}}
-                                    {{--<input type="text" placeholder="Type Your Location">--}}
-                                {{--</div>--}}
-                                {{--<div class="aa-single-advance-search">--}}
-                                    {{--<select id="" name="">--}}
-                                        {{--<option selected="" value="0">Category</option>--}}
-                                        {{--<option value="1">Flat</option>--}}
-                                        {{--<option value="2">Land</option>--}}
-                                        {{--<option value="3">Plot</option>--}}
-                                        {{--<option value="4">Commercial</option>--}}
-                                    {{--</select>--}}
-                                {{--</div>--}}
-                                {{--<div class="aa-single-advance-search">--}}
-                                    {{--<select id="" name="">--}}
-                                        {{--<option selected="" value="0">Type</option>--}}
-                                        {{--<option value="1">Flat</option>--}}
-                                        {{--<option value="2">Land</option>--}}
-                                        {{--<option value="3">Plot</option>--}}
-                                        {{--<option value="4">Commercial</option>--}}
-                                    {{--</select>--}}
-                                {{--</div>--}}
-                                {{--<div class="aa-single-advance-search">--}}
-                                    {{--<select id="" name="">--}}
-                                        {{--<option selected="" value="0">Type</option>--}}
-                                        {{--<option value="1">Flat</option>--}}
-                                        {{--<option value="2">Land</option>--}}
-                                        {{--<option value="3">Plot</option>--}}
-                                        {{--<option value="4">Commercial</option>--}}
-                                    {{--</select>--}}
-                                {{--</div>--}}
-                                {{--<div class="aa-single-filter-search">--}}
-                                    {{--<span>AREA (SQ)</span>--}}
-                                    {{--<span>FROM</span>--}}
-                                    {{--<span id="skip-value-lower" class="example-val">30.00</span>--}}
-                                    {{--<span>TO</span>--}}
-                                    {{--<span id="skip-value-upper" class="example-val">100.00</span>--}}
-
-                                    {{--<div id="aa-sqrfeet-range"--}}
-                                         {{--class="noUi-target noUi-ltr noUi-horizontal noUi-background">--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<div class="aa-single-filter-search">--}}
-                                    {{--<span>PRICE ($)</span>--}}
-                                    {{--<span>FROM</span>--}}
-                                    {{--<span id="skip-value-lower2" class="example-val">30.00</span>--}}
-                                    {{--<span>TO</span>--}}
-                                    {{--<span id="skip-value-upper2" class="example-val">100.00</span>--}}
-
-                                    {{--<div id="aa-price-range"--}}
-                                         {{--class="noUi-target noUi-ltr noUi-horizontal noUi-background">--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<div class="aa-single-advance-search">--}}
-                                    {{--<input type="submit" value="Search" class="aa-search-btn">--}}
-                                {{--</div>--}}
-                            {{--</form>--}}
-                        {{--</div>--}}
-                        <!-- Start Single properties sidebar -->
-
-                        <div class="aa-properties-single-sidebar">
-                            <h3>Populer Properties</h3>
-                            <div class="media">
-
-                                @foreach( $tProperties as $property)
-                                {{--<div class="media-left">--}}
-                                    {{--<a href="#">--}}
-                                        {{--<img class="media-object" src="img/item/1.jpg" alt="img">--}}
-                                    {{--</a>--}}
-                                {{--</div>--}}
-                                <div class="media-body myTop">
-                                    <h4 class="media-heading">{{ $property->title }}</h4>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                    <span>$65000</span>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-
-
-                    </aside>
+                    <div class="well">
+                        {{--<h1>{{$maps->address}}</h1>--}}
+                        <div id="map-canvas"></div>
+                    </div>
                 </div>
+
+
+                <div class="col-md-4">
+                    <div class="well">
+                        <dl class="dl-horizontal">
+                            <dt>Advertised at:</dt>
+                            <dd>{{ date('M j, Y h:ia', strtotime($details->created_at)) }}</dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                            <dt>Last Updated at:</dt>
+                            <dd>{{ date('M j, Y h:ia', strtotime($details->updated_at)) }}</dd>
+                        </dl>
+
+
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="well">
+                        <dl class="dl-horizontal">
+                            <h3 class="text-center">Advertised By</h3>
+                            <dd><img src="/uploads/avatars/{{ $details->user->avatar }}"
+                                     style="width:150px; height:150px; float:left; border-radius:50%; margin-left: -90px"></dd>
+                           <h5 class="text-center">Name: {{ $details->user->profile->first_name }} {{ $details->user->profile->last_name }}</h5>
+                            <h5 class="text-center">Address: {{ $details->user->profile->address }}, {{ $details->user->profile->city }}, {{ $details->user->profile->country }}</h5>
+                            <h5 class="text-center">Phone 1: {{ $details->user->profile->phone1 }}</h5>
+                            <h5 class="text-center">Phone 2: {{ $details->user->profile->phone2 }}</h5>
+                        </dl>
+                    </div>
+                </div>
+
             </div>
+        </div>
+        </div>
         </div>
     </section>
     <!-- / Properties  -->
@@ -255,8 +228,8 @@
         var lat = {{$maps->lat}};
         var lng = {{$maps->lng}};
 
-        var map = new google.maps.Map(document.getElementById('map-canvas'),{
-            center:{
+        var map = new google.maps.Map(document.getElementById('map-canvas'), {
+            center: {
                 lat: lat,
                 lng: lng
             },
@@ -264,11 +237,11 @@
         });
 
         var marker = new google.maps.Marker({
-            position:{
-                lat:lat,
+            position: {
+                lat: lat,
                 lng: lng
             },
-            map:map
+            map: map
         });
 
     </script>

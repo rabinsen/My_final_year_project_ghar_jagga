@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use App\Map;
+use App\Profile;
+use App\User;
 use Illuminate\Http\Request;
 use App\Property;
 
@@ -180,15 +182,24 @@ class PropertyController extends Controller
         $details = Property::findOrFail($id);
         $maps = Map::findOrFail($id);
         $tProperties = Property::orderBy('hit', 'desc');
+        $avgReview = Review::where('property_id', $id)->avg('rating');
+
         $details->hit++;
         $details->save();
 
-        return view('propertyDetails', ['details' => $details, 'maps' => $maps, 'tProperties' => $tProperties]);
+        return view('propertyDetails', ['details' => $details,
+            'maps' => $maps,
+            'tProperties' => $tProperties,
+            'avgReview' => $avgReview
+
+        ]);
     }
 
     public function showLatest(){
-        $latestProperties = Property::latest()->paginate(6);
-        return view('welcome', compact('latestProperties'));
+        $latestProperties = Property::latest()->paginate(4);
+        $property = Property::orderBy('hit', 'desc')->paginate(4);
+
+        return view('welcome', compact('latestProperties', 'property'));
     }
 
     public function userReview(Request $request){
