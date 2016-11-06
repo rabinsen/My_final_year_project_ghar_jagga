@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Property;
 use App\Profile;
+
 use App\ImageProperty;
 use Auth;
 use Image;
@@ -96,6 +97,13 @@ class UserController extends Controller
         Session::flash('success', 'This post was successfully saved.');
 
         return redirect()->route('showProfile', $user->id);
+    }
+
+    public function showAgents(){
+       $users = User::all();
+
+
+            return view ('agents.showAgents', compact('users'));
     }
 
 

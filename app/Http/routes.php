@@ -160,9 +160,10 @@ Route::get('filter', [
 //    'middleware' => 'auth'
 ]);
 
-//Route::get('agents', [
-//    'uses' => ''
-//]);
+Route::get('agents', [
+    'uses' => 'UserController@showAgents',
+    'as' => 'agents',
+]);
 
 Route::group(['prefix' => 'subscription'], function () {
     Route::get('/', [

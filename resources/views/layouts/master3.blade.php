@@ -41,8 +41,8 @@
 
     <!-- Main style sheet -->
     {{--For subscription--}}
-    <link rel="stylesheet" href="{{ asset('css/foundation.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    {{--<link rel="stylesheet" href="{{ asset('css/foundation.min.css') }}">--}}
+    {{--<link rel="stylesheet" href="{{ asset('css/custom.css') }}">--}}
 
     <link href="{{ asset('css/ratings.css') }}" rel="stylesheet">
     <link href="{{ asset('css/rating.css') }}" rel="stylesheet">
@@ -179,7 +179,7 @@
                 <li>
                     <a href="{{ route('userPropertyReviews') }}">Reviews on My Adds</a>
                 </li>
-                @if(!$user->subscribed('main'))
+                @if(!\Illuminate\Support\Facades\Auth::user()->subscribed('main'))
                 <li>
 
                     <a href="{{ route('subscription') }}">Become Agent</a>
