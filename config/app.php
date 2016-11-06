@@ -149,6 +149,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Laravel\Cashier\CashierServiceProvider::class,
 //        Cviebrock\EloquentSluggable\ServiceProvider::class,
        
         

@@ -40,6 +40,9 @@
     <link id="switcher" href="{{ asset('css/theme-color/default-theme.css') }}" rel="stylesheet">
 
     <!-- Main style sheet -->
+    {{--For subscription--}}
+    <link rel="stylesheet" href="{{ asset('css/foundation.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
     <link href="{{ asset('css/ratings.css') }}" rel="stylesheet">
     <link href="{{ asset('css/rating.css') }}" rel="stylesheet">
@@ -176,6 +179,12 @@
                 <li>
                     <a href="{{ route('userPropertyReviews') }}">Reviews on My Adds</a>
                 </li>
+                @if(!$user->subscribed('main'))
+                <li>
+
+                    <a href="{{ route('subscription') }}">Become Agent</a>
+                </li>
+                    @endif
             </ul>
         @endif
 
@@ -209,6 +218,7 @@
 
 <!-- /#wrapper -->
 {{--@include('includes.footer2')--}}
+@yield('script')
 @include('includes.footer')
 
 

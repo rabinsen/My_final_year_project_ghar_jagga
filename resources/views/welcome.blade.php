@@ -20,6 +20,7 @@
                                     <a href="#" class="aa-properties-item-img">
                                         <img src="{{ url('/images/'.$latestProperty->images->thumbnail) }}" alt="img">
                                     </a>
+
                                     <div class="aa-tag for-sale">
                                         For Sale
                                     </div>
@@ -32,13 +33,15 @@
                                         </div>
                                         <div class="aa-properties-about">
                                             <h3><a href="#">{{ $latestProperty->title }}</a></h3>
+
                                             <p>{{ $latestProperty->description }}</p>
                                         </div>
                                         <div class="aa-properties-detial">
                                     <span class="aa-price">
                                         {{ $latestProperty->price }}
                                     </span>
-                                            <a href="{{ route('details', $latestProperty->id) }}" class="aa-secondary-btn">View Details</a>
+                                            <a href="{{ route('details', $latestProperty->id) }}"
+                                               class="aa-secondary-btn">View Details</a>
                                         </div>
                                     </div>
                                 </article>
@@ -67,6 +70,7 @@
                                     <a href="#" class="aa-properties-item-img">
                                         <img src="{{ url('/images/'.$latestProperty->images->thumbnail) }}" alt="img">
                                     </a>
+
                                     <div class="aa-tag for-sale">
                                         For Sale
                                     </div>
@@ -79,13 +83,15 @@
                                         </div>
                                         <div class="aa-properties-about">
                                             <h3><a href="#">{{ $propertie->title }}</a></h3>
+
                                             <p>{{ $propertie->description }}</p>
                                         </div>
                                         <div class="aa-properties-detial">
                                     <span class="aa-price">
                                         {{ $propertie->price }}
                                     </span>
-                                            <a href="{{ route('details', $propertie->id) }}" class="aa-secondary-btn">View Details</a>
+                                            <a href="{{ route('details', $propertie->id) }}" class="aa-secondary-btn">View
+                                                Details</a>
                                         </div>
                                     </div>
                                 </article>
@@ -94,8 +100,8 @@
                     </div>
                 </div>
             </div>
-            </div>
-        <section>
+        </div>
+    </section>
 
     @include('includes.agents')
 @endsection

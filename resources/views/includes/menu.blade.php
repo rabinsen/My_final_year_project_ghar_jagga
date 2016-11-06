@@ -21,6 +21,7 @@
 
 
                     <li><a href="{{ url('/login') }}">SELL</a></li>
+                    {{--<li><a href="{{ route('agents') }}">FIND AGENTS</a></li>--}}
                     {{--<li><a href="404.html">404 PAGE</a></li>--}}
                 </ul>
                 <div class="nav navbar-nav navbar-right">

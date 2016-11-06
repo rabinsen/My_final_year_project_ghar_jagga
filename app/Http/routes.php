@@ -160,4 +160,36 @@ Route::get('filter', [
 //    'middleware' => 'auth'
 ]);
 
+//Route::get('agents', [
+//    'uses' => ''
+//]);
+
+Route::group(['prefix' => 'subscription'], function () {
+    Route::get('/', [
+        'as' => 'subscription',
+        'uses' => 'SubscriptionController@getIndex'
+    ]);
+
+//    Route::group(['middleware' => 'notSubscribe'], function(){
+    Route::get('join', [
+        'as' => 'subscription-join',
+        'uses' => 'SubscriptionController@getJoin'
+    ]);
+
+    Route::post('join', [
+        'as' => 'subscription-join1',
+        'uses' => 'SubscriptionController@postJoin'
+    ]);
+//    });
+    Route::get('cancel', [
+        'as' => 'subscription-cancel',
+        'uses' => 'SubscriptionController@getCancel'
+    ]);
+    Route::get('resume', [
+        'as' => 'subscription-resume',
+        'uses' => 'SubscriptionController@getResume'
+    ]);
+
+});
+
 
