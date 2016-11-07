@@ -1,6 +1,8 @@
 @extends('layouts.master3')
 
 @section('content')
+    <div class="col-md-6 myTop myLefts">
+        <div class="well">
     @if($user->subscribed('main'))
        <div class="myTop myLeft"> <h1>You are subscribed and now an Agent</h1></div>
         @if ($user->subscription('main')->cancelled())
@@ -15,8 +17,10 @@
             @endif
         </ul>
     @else
-     <div class="myTop">  <h1>Your are not. <a href="{{ route('subscription-join') }}">Join Now</a> </h1> </div>
+     <div>  <h1>Your are not Subscribed <a href="{{ route('subscription-join') }}">Join Now</a> </h1> </div>
     @endif
+            </div>
+        </div>
 @endsection
 
 @section('script')

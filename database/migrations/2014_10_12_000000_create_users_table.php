@@ -17,6 +17,14 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('first_name');
+            $table->string('middle_name');
+            $table->string('last_name');
+            $table->string('address');
+            $table->string('city');
+            $table->string('country');
+            $table->integer('phone1');
+            $table->integer('phone2');
             $table->boolean('type')->default(0);
             $table->string('stripe_id')->nullable();
             $table->string('card_brand')->nullable();
@@ -25,7 +33,7 @@ class CreateUsersTable extends Migration
             $table->boolean('active')->default(1);
             $table->integer('view_count');
             $table->string('avatar')->default('default.jpg');
-            $table->string('image');
+//            $table->string('image');
             $table->rememberToken();
             $table->timestamps();
         });

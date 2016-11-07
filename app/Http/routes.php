@@ -112,6 +112,20 @@ Route::get('properties/autocomplete', [
 ]);
 
 Route::resource('properties', 'PropertyController');
+Route::resource('users', 'UserController');
+
+Route::get('users/autocomplete', [
+    'uses' => 'UserController@autocomplete',
+    'as' => 'users.autocomplete'
+]);
+
+
+Route::get('/agentSearch', [
+    'uses' => 'AgentController@agentSearch',
+    'as' => 'agentSearch',
+    'middleware' => 'auth'
+]);
+
 
 Route::get('/userPropertyReviews', [
     'uses' => 'DashboardController@myReviews',

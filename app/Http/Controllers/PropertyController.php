@@ -109,7 +109,7 @@ class PropertyController extends Controller
 //        $property->address = $request->address;
         $property->city = $request->city;
         $property->country = $request->country;
-        $property->mapLocation = $request->mapLocation;
+//        $property->mapLocation = $request->mapLocation;
         $property->landArea = $request->landArea;
         $property->houseArea = $request->houseArea;
         $property->plotted = $request->plotted;
@@ -181,11 +181,22 @@ class PropertyController extends Controller
     public function detail($id){
         $details = Property::findOrFail($id);
         $maps = Map::findOrFail($id);
-        $tProperties = Property::orderBy('hit', 'desc');
-        $avgReview = Review::where('property_id', $id)->avg('rating');
 
-        $details->hit++;
-        $details->save();
+
+        $tProperties = Property::orderBy('hit', 'desc');
+        $avgReview = round(Review::where('property_id', $id)->avg('rating'));
+        $user_id = $details->user_id;
+
+        if (!Auth::user()){
+            $details->hit++;
+            $details->save();
+        }
+        elseif(Auth::user()->id != $user_id){
+            $details->hit++;
+            $details->save();
+        }
+
+
 
         return view('propertyDetails', ['details' => $details,
             'maps' => $maps,

@@ -24,7 +24,7 @@ class CreatePropertiesTable extends Migration
             $table->string('city');
             $table->string('country');
             $table->integer('hit');
-            $table->string('mapLocation');
+//            $table->string('mapLocation');
             $table->integer('group_id')->unsigned()->default(0);
             $table->integer('user_id')->unsigned();
             $table->float('landArea');

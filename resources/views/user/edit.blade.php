@@ -9,7 +9,7 @@
                 <dd><img src="/uploads/avatars/{{ $user->avatar }}" class="text-center"
                          style="width:150px; height:150px; border-radius:50%;"></dd>
 
-                {!! Form::label('first_name', 'First Name:') !!}
+                {!! Form::label('first_name', 'Name:') !!}
                 {{ Form::text('first_name', null, ['class' => 'form-control input-lg']) }}
 
                 {!! Form::label('last_name', 'Last Name:') !!}
@@ -19,7 +19,7 @@
                 {{ Form::text('address', null, ['class' => 'form-control input-lg']) }}
 
                 {!! Form::label('city', 'City:') !!}
-                {{ Form::text('address', null, ['class' => 'form-control input-lg']) }}
+                {{ Form::text('city', null, ['class' => 'form-control input-lg']) }}
 
                 {!! Form::label('country', 'Country:') !!}
                 {{ Form::text('country', null, ['class' => 'form-control input-lg']) }}

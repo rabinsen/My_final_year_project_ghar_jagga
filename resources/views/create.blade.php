@@ -326,11 +326,6 @@
             </div>
 
             <div class="form-group">
-                <label>Map Location:</label>
-                <input type="text" name="mapLocation" class="form-control">
-            </div>
-
-            <div class="form-group">
                 <label>Land Area:</label>
                 <input type="text" name="landArea" class="form-control"> sq.ft
             </div>

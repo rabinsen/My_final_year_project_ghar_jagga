@@ -28,6 +28,28 @@
                         <!-- Start properties content body -->
                         <div class="aa-properties-details">
                             <div class="w3-content w3-display-container">
+                                <div>
+                                    <div class="rating myTop">
+                                        @if( $avgReview == 0 )
+                                            <span class="rating-static rating-0" style="height: 10px;"></span>
+                                        @endif
+                                        @if( $avgReview == 1 )
+                                            <span class="rating-static rating-10"></span>
+                                        @endif
+                                        @if( $avgReview == 2 )
+                                            <span class="rating-static rating-20"></span>
+                                        @endif
+                                        @if( $avgReview == 3 )
+                                            <span class="rating-static rating-30"></span>
+                                        @endif
+                                        @if( $avgReview == 4 )
+                                            <span class="rating-static rating-40" style="height: 10px;"></span>
+                                        @endif
+                                        @if( $avgReview == 5 )
+                                            <span class="rating-static rating-50"></span>
+                                        @endif
+                                    </div>
+                                </div>
 
 
 
@@ -40,7 +62,8 @@
                                 <a class="w3-btn-floating w3-display-right" onclick="plusDivs(1)">&#10095;</a>
                             </div>
 
-                            <h1>{{ App\Review::where('property_id', $details->id)->avg('rating') }}</h1>
+
+                            {{--<h1>{{ App\Review::where('property_id', $details->id)->avg('rating') }}</h1>--}}
 
 
                             {{--<div class="aa-properties-details-img">--}}

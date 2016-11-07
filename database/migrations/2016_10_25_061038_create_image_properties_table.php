@@ -17,8 +17,8 @@ class CreateImagePropertiesTable extends Migration
             $table->increments('id');
             $table->string('thumbnail');
             $table->string('slide1');
-            $table->string('slide2');
-            $table->string('slide3');
+//            $table->string('slide2');
+//            $table->string('slide3');
             $table->integer('property_id')->unsigned();
             $table->timestamps();
             $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');

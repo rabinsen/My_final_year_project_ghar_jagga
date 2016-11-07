@@ -19,8 +19,12 @@
                 <ul id="top-menu" class="nav navbar-nav navbar-left aa-main-nav">
                     <li><a href="{{ route('properties.index') }}">BUY</a></li>
 
-
+                    @if(!Auth::user())
                     <li><a href="{{ url('/login') }}">SELL</a></li>
+                    @else
+                        <li><a href="{{ url('/create') }}">SELL</a></li>
+                    @endif
+
                     <li><a href="{{ route('agents') }}">FIND AGENTS</a></li>
                     {{--<li><a href="404.html">404 PAGE</a></li>--}}
                 </ul>
