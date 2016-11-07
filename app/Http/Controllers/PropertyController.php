@@ -72,30 +72,29 @@ class PropertyController extends Controller
         $property->group_id = $request->group_id;
 
 
-//        $this->validate($request, [
-//            //'category' => 'required',
-//            'title' => 'required',
-//            'price' => 'required',
-//            //'type' => 'required',
-////            'status' => 'required',
-////            'readyToMove' => 'required',
-////            'address' => 'required',
-////            'city' => 'required',
-////            'country' => 'required',
-////            'mapLocation' => 'required',
-////            'landArea' => 'required',
-////            'houseArea' => 'required',
-////            'plotted' => '',
-////            'storey' => 'required',
-////            'bedroom' => 'required',
-////            'bathroom' => 'required',
-////
-////            'kitchen' => 'required',
-////            'roadDistance' => '',
-////            'description' => '',
-//            'image' => 'required'
-//        ]);
-//        $category->name= $request->category;
+          $this->validate($request, [
+           'category' => 'required',
+           'title' => 'required',
+           'price' => 'required',
+           'type' => 'required',
+           'status' => 'required',
+           'readyToMove' => 'required',
+           'address' => 'required',
+           'city' => 'required',
+           'country' => 'required',
+           'mapLocation' => 'required',
+           'landArea' => 'required',
+           'houseArea' => 'required',
+           'plotted' => 'required',
+           'storey' => 'required',
+           'bedroom' => 'required',
+           'bathroom' => 'required',
+           'kitchen' => 'required',
+           'roadDistance' => 'required',
+           'description' => 'required',
+           'thumbnail' => 'required',
+           'slide1' => 'required',
+       ]);//        $category->name= $request->category;
 
         $map->address = $request->address;
         $map->lat = $request->lat;

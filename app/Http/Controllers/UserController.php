@@ -47,6 +47,19 @@ class UserController extends Controller
 
     public function upload(Request $request){
         $profile = new Profile();
+
+
+          $this->validate($request, [
+           'first_name' => 'required',
+           'middle_name' => 'required',
+           'last_name' => 'required',
+           'address' => 'required',
+           'city' => 'required',
+           'country' => 'required',
+           'phone1' => 'required',
+           'phone2' => 'required',
+       ]);
+
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();

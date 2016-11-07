@@ -10,7 +10,13 @@
         <form enctype="multipart/form-data" action="{{ route('store') }}" method="POST">
             <div class="form-group">
                 <label>Title:</label>
-                <input type="text" name="title" class="form-control">
+                <input type="text" name="title" class="form-control" value="{{ old('title') }}">
+                 @if ($errors->has('title'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('title') }}</strong>
+                  </span>
+                  
+                  @endif
             </div>
 
             <label>Category</label>
@@ -20,14 +26,24 @@
 
             <div class="form-group">
                 <label>Price:</label>
-                <input type="text" name="price" class="form-control">
+                <input type="text" name="price" class="form-control" value="{{ old('price') }}">
+                @if ($errors->has('price'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('price') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label>Type:</label>
-                <input name="type" type="radio" value="residential" class="form-check-input"> Residential
-                <input name="type" type="radio" value="commercial" class="form-check-input"> Commercial
-                <input name="type" type="radio" value="both" class="form-check-input"> Both
+                <input name="type" type="radio" value="residential" class="form-check-input" value="{{ old('residential') }}"> Residential
+                <input name="type" type="radio" value="commercial" class="form-check-input" value="{{ old('commercial') }}"> Commercial
+                <input name="type" type="radio" value="both" class="form-check-input" value="{{ old('both') }}"> Both
+                @if ($errors->has('type'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('type') }}</strong>
+                  </span>
+                  @endif
 
             </div>
 
@@ -35,22 +51,42 @@
                 <label>Status:</label>
                 <input name="status" type="radio" value="booked" class="form-check-input"> Booked
                 <input name="status" type="radio" value="available" class="form-check-input"> Available
+                @if ($errors->has('status'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('status') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label>Ready To Move:</label>
                 <input name="readyToMove" type="radio" value="yes" class="form-check-input"> Yes
                 <input name="readyToMove" type="radio" value="no" class="form-check-input"> No
+                @if ($errors->has('readyToMove'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('readyToMove') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label>Address:</label>
                 <textarea type="text" name="address" class="form-control"></textarea>
+                @if ($errors->has('address'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('address') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label>City:</label>
-                <input type="text" name="city" class="form-control">
+                <input type="text" name="city" class="form-control" value="{{ old('city') }}">
+                @if ($errors->has('city'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('city') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
@@ -306,74 +342,134 @@
                         <option value="Zambia">Zambia</option>
                         <option value="Zimbabwe">Zimbabwe</option>
                     </select>
+                    @if ($errors->has('country'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('country') }}</strong>
+                  </span>
+                  @endif
 
             </div>
 
-            <div class="form-group">
+                  <div class="form-group">
                 <label for="">Map</label>
                 <input type="text" id="searchmap">
                 <div id="map-canvas"></div>
+                 @if ($errors->has('map'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('map') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label for="">Lat</label>
                 <input type="text" class="form-control input-sm" name="lat" id="lat">
+                 @if ($errors->has('lat'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('lat') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label for="">Lng</label>
                 <input type="text" class="form-control input-sm" name="lng" id="lng">
-            </div>
-
-            <div class="form-group">
-                <label>Map Location:</label>
-                <input type="text" name="mapLocation" class="form-control">
+                 @if ($errors->has('lng'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('lng') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label>Land Area:</label>
-                <input type="text" name="landArea" class="form-control"> sq.ft
+                <input type="text" name="landArea" class="form-control" value="{{ old('landArea') }}"> sq.ft
+                @if ($errors->has('landArea'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('landArea') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label>House Area:</label>
-                <input type="text" name="houseArea" class="form-control">
+                <input type="text" name="houseArea" class="form-control" value="{{ old('houseArea') }}">
+                @if ($errors->has('houseArea'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('houseArea') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label>Plotted:</label>
-                <input name="plotted" type="radio" value="yes"> Yes
-                <input name="plotted" type="radio" value="no"> No
+                <input name="plotted" type="radio" value="yes" value="{{ old('plotted') }}"> Yes
+                <input name="plotted" type="radio" value="no" value="{{ old('plotted') }}"> No
+                @if ($errors->has('plotted'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('plotted') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label>Storey:</label>
-                <input type="text" name="storey" class="form-control">
+                <input type="text" name="storey" class="form-control" value="{{ old('storey') }}">
+                @if ($errors->has('storey'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('storey') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label>Bedroom:</label>
-                <input type="text" name="bedroom" class="form-control">
+                <input type="text" name="bedroom" class="form-control" value="{{ old('bedroom') }}">
+                @if ($errors->has('bedroom'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('bedroom') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label>Bathroom:</label>
-                <input type="text" name="bathroom" class="form-control">
+                <input type="text" name="bathroom" class="form-control" value="{{ old('bathroom') }}">
+                @if ($errors->has('bathroom'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('bathroom') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label>Kitchen:</label>
-                <input type="text" name="kitchen" class="form-control">
+                <input type="text" name="kitchen" class="form-control" value="{{ old('kitchen') }}">
+                @if ($errors->has('kitchen'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('kitchen') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
                 <label>Road Distance:</label>
-                <input type="text" name="roadDistance" class="form-control"> meter
+                <input type="text" name="roadDistance" class="form-control" value="{{ old('roadDistance') }}"> meter
+                @if ($errors->has('roadDistance'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('roadDistance') }}</strong>
+                  </span>
+                  @endif
             </div>
 
             <div class="form-group">
-                <label>Descriptaion:</label>
+                <label>Description:</label>
                 <textarea type="text" name="description" class="form-control"></textarea>
+                @if ($errors->has('description'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('description') }}</strong>
+                  </span>
+                  @endif
             </div>
 
 
@@ -382,19 +478,32 @@
                 <input type="file" name="thumbnail">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-            </div>
+                @if ($errors->has('thumbnail'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('thumbnail') }}</strong>
+                  </span>
+                  @endif
+
+             </div>
 
             <div class="form-group">
                 <label>Upload Image</label>
                 <input type="file" name="slide1">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+                 @if ($errors->has('slide1'))
+                  <span class="help-block">
+                    <strong>{{ $errors->first('slide1') }}</strong>
+                  </span>
+                  @endif
+                 
             </div>
 
 
             <div>
                 {{--<input type="hidden" name="c_id" value="{{ $category->id }}">--}}
                 <input type="submit" class="pull-right btn btn-sm btn-primary">
+
             </div>
 
         </form>

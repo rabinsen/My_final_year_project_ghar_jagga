@@ -17,6 +17,12 @@
                         <div class="form-group">
                             <label>First Name:</label>
                             <input type="text" name="first_name">
+                         @if ($errors->has('first_name'))
+                            <span class="help-block">
+                            <strong>{{ $errors->first('first_name') }}</strong>
+                            </span>
+                          
+                          @endif
                         </div>
                         <div class="form-group">
                             <label>Middle Name:</label>
@@ -25,14 +31,32 @@
                         <div class="form-group myLeftss">
                             <label>Last Name:</label>
                             <input type="text" name="last_name">
+                             @if ($errors->has('last_name'))
+                            <span class="help-block">
+                            <strong>{{ $errors->first('last_name') }}</strong>
+                            </span>
+                          
+                          @endif
                         </div>
                         <div class="form-group myLeftss">
                             <label>Address:</label>
                             <input type="text" name="address">
+                              @if ($errors->has('address'))
+                            <span class="help-block">
+                            <strong>{{ $errors->first('address') }}</strong>
+                            </span>
+                          
+                          @endif
                         </div>
                         <div class="form-group myLeftss">
                             <label>City:</label>
                             <input type="text" name="city">
+                              @if ($errors->has('city'))
+                            <span class="help-block">
+                            <strong>{{ $errors->first('city') }}</strong>
+                            </span>
+                          
+                          @endif
                         </div>
                         <div class="form-group myLeftss">
                             <label>Country:</label>
@@ -287,19 +311,43 @@
                                 <option value="Zambia">Zambia</option>
                                 <option value="Zimbabwe">Zimbabwe</option>
                             </select>
+                              @if ($errors->has('country'))
+                            <span class="help-block">
+                            <strong>{{ $errors->first('country') }}</strong>
+                            </span>
+                          
+                          @endif
 
                         </div>
                         <div class="form-group myLeftss">
                             <label>Phone 1:</label>
                             <input type="text" name="phone1">
+                              @if ($errors->has('phone1'))
+                            <span class="help-block">
+                            <strong>{{ $errors->first('phone1') }}</strong>
+                            </span>
+                          
+                          @endif
                         </div>
                         <div class="form-group myLeftss">
                             <label>Phone 2:</label>
                             <input type="text" name="phone2">
+                            @if ($errors->has('phone2'))
+                            <span class="help-block">
+                            <strong>{{ $errors->first('phone2') }}</strong>
+                            </span>
+                          
+                          @endif
                         </div>
 
                         <div class="form-group myLeftss">
                         <input type="file" name="avatar">
+                        @if ($errors->has('avatar'))
+                            <span class="help-block">
+                            <strong>{{ $errors->first('avatar') }}</strong>
+                            </span>
+                          
+                          @endif
                         </div>
                         <br>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
